@@ -8,6 +8,26 @@
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+<button id="confirm">通知の許可を取得する</button>
+<button id="send">通知を送信する</button>
+
+<script>
+  document.getElementById('confirm').addEventListener('click', () => {
+    Notification.requestPermission().then(permission => {
+      alert(permission); // granted or denied
+    });
+  });
+  
+  // 通知の送信
+  document.getElementById('send').addEventListener('click', () => {
+    if (Notification.permission === 'granted') {
+      navigator.serviceWorker.ready.then(registration => {
+        registration.active.postMessage('hello!!!');
+      });
+    }
+  });
+</script>
+
 <canvas id="stage"></canvas>
 <script src="drawer.js"></script>
 <script>
