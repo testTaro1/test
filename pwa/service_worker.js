@@ -1,7 +1,12 @@
-// キャッシュファイルの指定
+
+// ServiceWorker処理：https://developers.google.com/web/fundamentals/primers/service-workers/?hl=ja
+
+// キャッシュ名とキャッシュファイルの指定
 var CACHE_NAME = 'pwa-sample-caches';
 var urlsToCache = [
-    '/poster-keisuke.github.io/',
+    '/pwa/',
+    '/pwa/css/style.css',
+    '/pwa/drawer.js'
 ];
 
 // インストール処理
